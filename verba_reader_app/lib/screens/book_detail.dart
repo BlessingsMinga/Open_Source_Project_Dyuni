@@ -107,20 +107,28 @@ class BookDetail extends StatelessWidget {
                       onPressed: () {
                         _launchURL(buyLink);
                       },
-                      child: const Text('More Info',style: TextStyle(fontSize: 10, letterSpacing: 1.0,fontWeight: FontWeight.bold, color: Colors.black), textAlign: TextAlign.center,),
-                      style: ElevatedButton.styleFrom(
-                          backgroundColor: Colors.green[700],
-                          shape: RoundedRectangleBorder(
-                              borderRadius: BorderRadius.circular(10)),
-                          padding: EdgeInsets.only(
-                              right: 20, left: 25, top: 15, bottom: 15))
-
-                  ),
-              ],
-            ),
-          ],
-        ),
-      ),
-    );
-  }
-}
+    child: ElevatedButton(
+    onPressed: () {
+    // Handle More Info button press
+    },
+    style: ElevatedButton.styleFrom(
+    backgroundColor: Colors.green[700],
+    shape: RoundedRectangleBorder(
+    borderRadius: BorderRadius.circular(10),
+    ),
+    padding: const EdgeInsets.symmetric(
+    horizontal: 25,
+    vertical: 15,
+    ),
+    ),
+    child: const Text(
+    'More Info',
+    textAlign: TextAlign.center,
+    style: TextStyle(
+    fontSize: 10,
+    letterSpacing: 1.0,
+    fontWeight: FontWeight.bold,
+    color: Colors.black,
+    ),
+    ),
+    ),
