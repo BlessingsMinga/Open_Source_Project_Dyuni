@@ -1,4 +1,16 @@
-Project Title: Verba Reader App in Flutter <br><br>
-Overview: The Verba Reader App is designed to bring a library to the user's fingertips, serving as a travel companion for book lovers. 
-Developed using the Flutter framework and provider state management, the application leverages the Google Books API to fetch book data. 
-It allows users to search for books by name, view book descriptions, and, where available, preview or download books
+# verba_reader
+
+A new Flutter project.
+
+## Getting Started
+
+This project is a starting point for a Flutter application.
+
+A few resources to get you started if this is your first Flutter project:
+
+- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
+- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
+
+For help getting started with Flutter development, view the
+[online documentation](https://docs.flutter.dev/), which offers tutorials,
+samples, guidance on mobile development, and a full API reference.
