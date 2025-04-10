@@ -1,0 +1,15 @@
+<component name="libraryTable">
+  <library name="Dart SDK">
+    <CLASSES>
+      <root url="file://$USER_HOME$/TwitterX-main/lib/apis" />
+      <root url="file://$USER_HOME$/TwitterX-main/lib/common" />
+      <root url="file://$USER_HOME$/TwitterX-main/lib/constants" />
+      <root url="file://$USER_HOME$/TwitterX-main/lib/core" />
+      <root url="file://$USER_HOME$/TwitterX-main/lib/features" />
+      <root url="file://$USER_HOME$/TwitterX-main/lib/models" />
+      <root url="file://$USER_HOME$/TwitterX-main/lib/theme" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>
