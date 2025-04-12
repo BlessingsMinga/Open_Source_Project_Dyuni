@@ -17,3 +17,7 @@ class MyApp extends StatelessWidget {
         providers: [
         ChangeNotifierProvider(create: (_) => GoogleBooksApi()),
     ],
+
+    child: MaterialApp(
+    debugShowCheckedModeBanner: false,
+    title: 'EBook reader Application',
