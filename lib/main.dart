@@ -21,3 +21,12 @@ class MyApp extends StatelessWidget {
     child: MaterialApp(
     debugShowCheckedModeBanner: false,
     title: 'EBook reader Application',
+      theme: ThemeData(
+        primarySwatch: Colors.blue,
+      ),
+      home: const HomeScreen(),
+    ),
+    );
+  }
+}
+
