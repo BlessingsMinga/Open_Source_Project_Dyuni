@@ -26,11 +26,11 @@ class BookDetail extends StatelessWidget {
         : null;
 
     final previewLink = volumeInfo['previewLink'];
-    final downloadLink = book['accessInfo'] != null
-        ? book['accessInfo']['pdf'] != null && book['accessInfo']['pdf']['isAvailable']
-        ? book['accessInfo']['pdf']['acsTokenLink']
-        : null
+
+    final downloadLink = book['accessInfo']?['pdf']?['isAvailable'] == true
+        ? book['accessInfo']?['pdf']?['acsTokenLink']
         : null;
+
 
     final buyLink = volumeInfo['infoLink'];
 
