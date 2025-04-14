@@ -46,15 +46,26 @@ class BookDetail extends StatelessWidget {
             // Display the image with a placeholder and error handling
             thumbnail != null
                 ? FadeInImage.assetNetwork(
-              placeholder: 'assets/images/placeholder.png', // Path to your placeholder image
+              placeholder: 'assets/images/placeholder.png', // Local placeholder image
               image: thumbnail,
-              fit: BoxFit.cover, // Adjust how the image should fit
+              fit: BoxFit.cover,
               imageErrorBuilder: (context, error, stackTrace) {
-                // If image fails to load, show the placeholder image
-                return Image.asset('assets/images/placeholder.png', fit: BoxFit.cover,);
+                // Fallback if the image fails to load
+                return Image.asset(
+                  'assets/images/placeholder.png',
+                  fit: BoxFit.cover,
+                );
               },
             )
-                : const Icon(
+                : Image.asset(
+              'assets/images/placeholder.png',
+              fit: BoxFit.cover,
+            ),
+          ],
+        ),
+      ),
+
+      : const Icon(
               Icons.book,
               size: 100,
             ),
