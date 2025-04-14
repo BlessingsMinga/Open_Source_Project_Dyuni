@@ -8,30 +8,25 @@ class BookDetail extends StatelessWidget {
 
   // Function to open URLs in the browser
   Future<void> _launchURL(String url) async {
-    final Uri uri = Uri.parse(url); // Create a Uri object
-    if (await canLaunchUrl(uri)) {  // Check if the URL can be launched
-      await launchUrl(uri);          // Launch the URL
+    final Uri uri = Uri.parse(url);
+    if (await canLaunchUrl(uri)) {
+      await launchUrl(uri);
     } else {
-      throw 'Could not launch $url'; // Handle errors
+      throw 'Could not launch $url';
     }
   }
 
   @override
   Widget build(BuildContext context) {
     final volumeInfo = book['volumeInfo'];
-
-    //  Extract URLs
     final thumbnail = volumeInfo['imageLinks'] != null
         ? volumeInfo['imageLinks']['thumbnail']
         : null;
 
     final previewLink = volumeInfo['previewLink'];
-
     final downloadLink = book['accessInfo']?['pdf']?['isAvailable'] == true
         ? book['accessInfo']?['pdf']?['acsTokenLink']
         : null;
-
-
     final buyLink = volumeInfo['infoLink'];
 
     return Scaffold(
@@ -43,14 +38,13 @@ class BookDetail extends StatelessWidget {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            // Display the image with a placeholder and error handling
+            // Book Thumbnail
             thumbnail != null
                 ? FadeInImage.assetNetwork(
-              placeholder: 'assets/images/placeholder.png', // Local placeholder image
+              placeholder: 'assets/images/placeholder.png',
               image: thumbnail,
               fit: BoxFit.cover,
               imageErrorBuilder: (context, error, stackTrace) {
-                // Fallback if the image fails to load
                 return Image.asset(
                   'assets/images/placeholder.png',
                   fit: BoxFit.cover,
@@ -61,78 +55,88 @@ class BookDetail extends StatelessWidget {
               'assets/images/placeholder.png',
               fit: BoxFit.cover,
             ),
-          ],
-        ),
-      ),
 
-      const Icon(
-        Icons.book,
-        size: 100,
-      ),
-      const SizedBox(height: 16),
-      Text(
-        volumeInfo['title'] ?? 'No Title',
-        style: const TextStyle(
-          fontSize: 15,
-          fontWeight: FontWeight.bold,
-        ),
-      ),
-      const SizedBox(height: 8),
-        Text(
-        'Author(s): ${volumeInfo['authors'] != null ? (volumeInfo['authors'] as List).join(', ') : 'Unknown'}',
-      ),
-      const SizedBox(height: 8),
-      Text(
-        volumeInfo['description'] ?? 'No Description',
-        maxLines: 5,
-        overflow: TextOverflow.ellipsis,
-      ),
-      const Spacer(),
+            const SizedBox(height: 16),
+            const Icon(
+              Icons.book,
+              size: 100,
+            ),
+            const SizedBox(height: 16),
 
-      children: [
+            // Book Title
+            Text(
+              volumeInfo['title'] ?? 'No Title',
+              style: const TextStyle(
+                  fontSize: 15, fontWeight: FontWeight.bold),
+            ),
+            const SizedBox(height: 8),
+
+            // Authors
+            Text(
+              'Author(s): ${volumeInfo['authors'] != null ? (volumeInfo['authors'] as List).join(', ') : 'Unknown'}',
+            ),
+            const SizedBox(height: 8),
+
+            // Description
+            Text(
+              volumeInfo['description'] ?? 'No Description',
+              maxLines: 5,
+              overflow: TextOverflow.ellipsis,
+            ),
+            const Spacer(),
+
+            // Buttons Row
+            Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
                 // Preview Button
                 if (previewLink != null)
                   ElevatedButton(
-                      onPressed: () {
-                        _launchURL(previewLink);
-                      },
-                      child: const Text('Preview' , style: TextStyle(fontSize: 10, letterSpacing: 1.0,fontWeight: FontWeight.bold, color: Colors.black), textAlign: TextAlign.center,),
-                      style: ElevatedButton.styleFrom(
-                          backgroundColor: Colors.green[700],
-                          shape: RoundedRectangleBorder(
-                              borderRadius: BorderRadius.circular(10)),
-                          padding: EdgeInsets.only(
-                              right: 20, left: 25, top: 15, bottom: 15))
+                    onPressed: () => _launchURL(previewLink),
+                    style: ElevatedButton.styleFrom(
+                      backgroundColor: Colors.green[700],
+                      shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(10),
+                      ),
+                      padding: const EdgeInsets.symmetric(
+                          horizontal: 25, vertical: 15),
+                    ),
+                    child: const Text(
+                      'Preview',
+                      style: TextStyle(
+                        fontSize: 10,
+                        letterSpacing: 1.0,
+                        fontWeight: FontWeight.bold,
+                        color: Colors.black,
+                      ),
+                      textAlign: TextAlign.center,
+                    ),
                   ),
                 const SizedBox(width: 10),
-                // Download Button
-                if (downloadLink != null)
-                  ElevatedButton(
-                      onPressed: () {
-                        _launchURL(downloadLink);
-                      },
-                      child: const Text('Download', style: TextStyle(fontSize: 10, letterSpacing: 1.0,fontWeight: FontWeight.bold, color: Colors.black), textAlign: TextAlign.center,),
-                      style: ElevatedButton.styleFrom(
-                          backgroundColor: Colors.green[700],
-                          shape: RoundedRectangleBorder(
-                              borderRadius: BorderRadius.circular(10)),
-                          padding: EdgeInsets.only(
-                              right: 20, left: 25, top: 15, bottom: 15))
-                  )
-                else
-                  ElevatedButton(
-                      onPressed: () {
-                        _launchURL(buyLink);
-                      },
-                      child: const Text('More Info',style: TextStyle(fontSize: 10, letterSpacing: 1.0,fontWeight: FontWeight.bold, color: Colors.black), textAlign: TextAlign.center,),
-                      style: ElevatedButton.styleFrom(
-                          backgroundColor: Colors.green[700],
-                          shape: RoundedRectangleBorder(
-                              borderRadius: BorderRadius.circular(10)),
-                          padding: EdgeInsets.only(
-                              right: 20, left: 25, top: 15, bottom: 15))
 
+                // Download or More Info Button
+                ElevatedButton(
+                  onPressed: () =>
+                      _launchURL(downloadLink ?? buyLink),
+                  style: ElevatedButton.styleFrom(
+                    backgroundColor: Colors.green[700],
+                    shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(10),
+                    ),
+                    padding: const EdgeInsets.symmetric(
+                        horizontal: 25, vertical: 15),
                   ),
+                  child: Text(
+                    downloadLink != null ? 'Download' : 'More Info',
+                    style: const TextStyle(
+                      fontSize: 10,
+                      letterSpacing: 1.0,
+                      fontWeight: FontWeight.bold,
+                      color: Colors.black,
+                    ),
+                    textAlign: TextAlign.center,
+                  ),
+                ),
               ],
             ),
           ],
