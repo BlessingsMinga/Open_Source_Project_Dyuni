@@ -65,25 +65,31 @@ class BookDetail extends StatelessWidget {
         ),
       ),
 
-      : const Icon(
-              Icons.book,
-              size: 100,
-            ),
-            const SizedBox(height: 16),
-            Text(
-              volumeInfo['title'] ?? 'No Title',
-              style: const TextStyle(fontSize: 15, fontWeight: FontWeight.bold),
-            ),
-            const SizedBox(height: 8),
-            Text('Author(s): ' +
-                (volumeInfo['authors'] != null
-                    ? volumeInfo['authors'].join(', ')
-                    : 'Unknown')),
-            const SizedBox(height: 8),
-            Text(volumeInfo['description'] ?? 'No Description'),
-            const Spacer(),
-            Row(
-              children: [
+      const Icon(
+        Icons.book,
+        size: 100,
+      ),
+      const SizedBox(height: 16),
+      Text(
+        volumeInfo['title'] ?? 'No Title',
+        style: const TextStyle(
+          fontSize: 15,
+          fontWeight: FontWeight.bold,
+        ),
+      ),
+      const SizedBox(height: 8),
+        Text(
+        'Author(s): ${volumeInfo['authors'] != null ? (volumeInfo['authors'] as List).join(', ') : 'Unknown'}',
+      ),
+      const SizedBox(height: 8),
+      Text(
+        volumeInfo['description'] ?? 'No Description',
+        maxLines: 5,
+        overflow: TextOverflow.ellipsis,
+      ),
+      const Spacer(),
+
+      children: [
                 // Preview Button
                 if (previewLink != null)
                   ElevatedButton(
