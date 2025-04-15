@@ -52,13 +52,13 @@ class BookDetail extends StatelessWidget {
             thumbnail != null
                 ? FadeInImage.assetNetwork(
                     placeholder:
-                        'assets/images/placeholder.png', // Path to your placeholder image
+                        'assets/images/verba-reader-high-resolution-logo.png', // Path to your placeholder image
                     image: thumbnail,
                     fit: BoxFit.cover, // Adjust how the image should fit
                     imageErrorBuilder: (context, error, stackTrace) {
                       // If image fails to load, show the placeholder image
                       return Image.asset(
-                        'assets/images/placeholder.png',
+                        'assets/images/verba-reader-high-resolution-logo.png',
                         fit: BoxFit.cover,
                       );
                     },
