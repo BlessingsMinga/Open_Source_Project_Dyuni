@@ -20,7 +20,7 @@ class MyApp extends StatelessWidget {
 
     child: MaterialApp(
     debugShowCheckedModeBanner: false,
-    title: 'verba reader Application',
+    title: 'verba  reader Application',
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
