@@ -8,11 +8,14 @@ class BookDetail extends StatelessWidget {
 
   // Function to open URLs in the browser
   Future<void> _launchURL(String url) async {
-    final Uri uri = Uri.parse(url);
-    if (await canLaunchUrl(uri)) {
-      await launchUrl(uri);
-    } else {
-      throw 'Could not launch $url';
+    try {
+      final Uri uri = Uri.parse(url);
+
+      if (!await launchUrl(uri, mode: LaunchMode.externalApplication)) {
+        throw Exception('Could not launch $url');
+      }
+    } catch (e) {
+      print('Error launching URL: $e');
     }
   }
 
