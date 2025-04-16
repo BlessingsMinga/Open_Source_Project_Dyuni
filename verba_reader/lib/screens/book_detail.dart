@@ -38,7 +38,8 @@ class BookDetail extends StatelessWidget {
       appBar: AppBar(
         title: Text(
           volumeInfo['title'] ?? 'No Title',
-          style: const TextStyle(fontWeight: FontWeight.bold, fontSize: 18),
+          style: const TextStyle(
+              fontWeight: FontWeight.bold, fontSize: 18, color: Colors.white),
         ),
       ),
       body: Padding(
