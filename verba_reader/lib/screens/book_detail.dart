@@ -19,8 +19,7 @@ class BookDetail extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final volumeInfo = book['volumeInfo'];
-
+    final volumeInfo = book['volumeInfo'] ?? {};
     //  Extract URLs
     final thumbnail = volumeInfo['imageLinks'] != null
         ? volumeInfo['imageLinks']['thumbnail']
