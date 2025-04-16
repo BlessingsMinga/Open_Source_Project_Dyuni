@@ -76,7 +76,7 @@ class BookDetail extends StatelessWidget {
             Text('Author(s): ' +
                 (volumeInfo['authors'] != null
                     ? volumeInfo['authors'].join(', ')
-                    : 'Unknown')),
+                    : 'No author found')),
             const SizedBox(height: 8),
             Text(volumeInfo['description'] ?? 'No Description'),
             const Spacer(),
