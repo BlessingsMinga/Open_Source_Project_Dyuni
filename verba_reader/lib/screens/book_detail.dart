@@ -8,12 +8,11 @@ class BookDetail extends StatelessWidget {
 
   // Function to open URLs in the browser
   Future<void> _launchURL(String url) async {
-    final Uri uri = Uri.parse(url); // Create a Uri object
+    final Uri uri = Uri.parse(url);
     if (await canLaunchUrl(uri)) {
-      // Check if the URL can be launched
-      await launchUrl(uri); // Launch the URL
+      await launchUrl(uri);
     } else {
-      throw 'Could not launch $url'; // Handle errors
+      throw 'Could not launch $url';
     }
   }
 
@@ -79,6 +78,7 @@ class BookDetail extends StatelessWidget {
             const SizedBox(height: 8),
             Text(volumeInfo['description'] ?? 'No Description'),
             const Spacer(),
+
             Row(
               children: [
                 // Preview Button
