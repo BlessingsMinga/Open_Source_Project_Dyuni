@@ -42,6 +42,7 @@ class BookDetail extends StatelessWidget {
               fontWeight: FontWeight.bold, fontSize: 18, color: Colors.white),
         ),
       ),
+      backgroundColor: const Color(0xFF204B57),
       body: Padding(
         padding: const EdgeInsets.all(8.0),
         child: Column(
