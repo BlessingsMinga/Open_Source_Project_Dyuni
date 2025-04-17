@@ -14,8 +14,7 @@ class MyApp extends StatelessWidget {
         primarySwatch: Colors.blue,
       ),
       home: HomePage(),
-      routes: {
-        '/bookDetail': (context) => BookDetailPage(),
+      routes: {,
       },
     );
   }
