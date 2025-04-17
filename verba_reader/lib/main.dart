@@ -18,4 +18,12 @@ class MyApp extends StatelessWidget {
     ],
     child: MaterialApp(
     debugShowCheckedModeBanner: false,
-    title: 'EBook reader Application',
+    title: 'verba reader Application',
+      theme: ThemeData(
+        primarySwatch: Colors.blue,
+      ),
+      home: const HomeScreen(),
+    ),
+    );
+  }
+}
