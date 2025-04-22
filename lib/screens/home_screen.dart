@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:provider/provider.dart';
-import '../services/google_books_api.dart';
+//import 'package:provider/provider.dart';
+//import '../services/google_books_api.dart';
 import 'book_detail.dart';
 
 class HomeScreen extends StatelessWidget {
@@ -8,7 +8,7 @@ class HomeScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final bookProvider = Provider.of<GoogleBooksApi>(context);
+   // final bookProvider = Provider.of<GoogleBooksApi>(context);
     TextEditingController searchController = TextEditingController();
     return Scaffold(
       appBar: AppBar(
