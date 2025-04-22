@@ -3,7 +3,6 @@ import 'package:provider/provider.dart';
 import 'screens/home_screen.dart';
 import 'services/google_books_api.dart';
 
-
 void main() {
   runApp(const MyApp());
 }
@@ -17,7 +16,6 @@ class MyApp extends StatelessWidget {
         providers: [
         ChangeNotifierProvider(create: (_) => GoogleBooksApi()),
     ],
-
     child: MaterialApp(
     debugShowCheckedModeBanner: false,
     title: 'verba reader Application',
@@ -29,4 +27,3 @@ class MyApp extends StatelessWidget {
     );
   }
 }
-
